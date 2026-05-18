@@ -76,9 +76,10 @@ function buildJsonUrl() {
   return `${location.origin}${path}.json?raw_json=1&limit=500`;
 }
 
-function createItem({ id, sourceType, kind, label, qualities, postTitle }) {
+function createItem({ id, dedupeKey, sourceType, kind, label, qualities, postTitle }) {
   return {
     id,
+    dedupeKey,
     sourceType,
     kind,
     label,
@@ -149,7 +150,7 @@ function addItem(itemsMap, item) {
   if (!hasUrl) {
     return;
   }
-  itemsMap.set(item.id, item);
+  itemsMap.set(item.dedupeKey || item.id, item);
 }
 
 function extractCommentUrls(text) {
@@ -290,6 +291,7 @@ function parseMediaFromJson(json) {
         itemsMap,
         createItem({
           id,
+          dedupeKey: url,
           sourceType: "comment",
           kind: getKindFromUrl(url),
           label: `comment-${commentData.author || "user"}-${index + 1}`,
