@@ -41,11 +41,15 @@ function selectQualityVariants(urls = []) {
     return {};
   }
 
-  const first = unique[0];
-  const low = unique[0];
-  const medium = unique[Math.floor((unique.length - 1) / 2)] || first;
-  const high = unique[Math.max(unique.length - 2, 0)] || first;
-  const original = unique[unique.length - 1] || first;
+  const original = unique[0];
+  const variants = unique.slice(1);
+  if (!variants.length) {
+    return { original, high: original, medium: original, low: original };
+  }
+
+  const low = variants[0];
+  const high = variants[variants.length - 1];
+  const medium = variants[Math.floor((variants.length - 1) / 2)] || original;
 
   return { original, high, medium, low };
 }
