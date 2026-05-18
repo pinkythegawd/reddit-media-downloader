@@ -154,8 +154,9 @@ function extractCommentUrls(text) {
     return urls;
   }
 
+  const mediaUrlRegex = new RegExp(MEDIA_URL_REGEX.source, MEDIA_URL_REGEX.flags);
   let match;
-  while ((match = MEDIA_URL_REGEX.exec(text)) !== null) {
+  while ((match = mediaUrlRegex.exec(text)) !== null) {
     urls.push(match[1]);
   }
   return urls;
