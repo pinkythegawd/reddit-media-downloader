@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Media Downloader",
+  "description": "Download high-quality Reddit media from posts, galleries, and comments.",
+  "version": "1.0.0",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://reddit.com/*",
+    "*://www.reddit.com/*",
+    "*://old.reddit.com/*"
+  ],
+  "action": {
+    "default_title": "Reddit Media Downloader",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://reddit.com/*",
+        "*://www.reddit.com/*",
+        "*://old.reddit.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "download-current-post-media": {
+      "suggested_key": {
+        "default": "Alt+Shift+D"
+      },
+      "description": "Download current post media"
+    },
+    "download-all-media": {
+      "suggested_key": {
+        "default": "Alt+Shift+A"
+      },
+      "description": "Download all media (post, gallery, comments)"
+    }
+  }
+}

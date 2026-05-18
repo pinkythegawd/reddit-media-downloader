@@ -1,0 +1,79 @@
+:root {
+  color-scheme: light dark;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 360px;
+}
+
+.container {
+  padding: 12px;
+}
+
+h1 {
+  font-size: 15px;
+  margin: 0 0 12px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.summary {
+  font-size: 12px;
+  margin: 8px 0 10px;
+}
+
+.actions {
+  display: grid;
+  gap: 8px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.progress-wrap {
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+
+progress {
+  width: 100%;
+}
+
+.status-list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  max-height: 160px;
+  overflow: auto;
+  font-size: 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.status-item {
+  border-radius: 6px;
+  padding: 6px;
+  background: color-mix(in srgb, CanvasText 8%, Canvas);
+}
+
+.hint {
+  margin-top: 10px;
+  font-size: 11px;
+}
+
+code {
+  font-size: 11px;
+}
