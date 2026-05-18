@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reddit Media Downloader</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Reddit Media Downloader</h1>
+
+      <div class="row">
+        <label for="quality">Quality</label>
+        <select id="quality">
+          <option value="original">Original (default)</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+
+      <div id="summary" class="summary">Scanning page…</div>
+
+      <div class="actions">
+        <button id="downloadPost">Download current post media</button>
+        <button id="downloadAll">Download all media</button>
+      </div>
+
+      <div class="progress-wrap">
+        <div id="progressText">Idle</div>
+        <progress id="progressBar" value="0" max="1"></progress>
+      </div>
+
+      <ul id="statusList" class="status-list"></ul>
+
+      <p class="hint">
+        Shortcuts: <strong>Alt+Shift+D</strong> (current post), <strong>Alt+Shift+A</strong> (all). Customize in
+        <code>chrome://extensions/shortcuts</code>.
+      </p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>
